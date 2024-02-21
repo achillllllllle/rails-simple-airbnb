@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-between align-items-center bg-secondary text-white">
+  <h1 class="p-3 fw-bold">All our flats</h1>
+
+  <%= link_to "Add a flat", new_flat_path, class:"text-white fw-bold p-3 fs-5" %>
+</div>
+
+<div class="container">
+  <div class="row justify-content-around">
+    <% @flats.each do |flat| %>
+      <div class="card col-3 m-1 p-1">
+        <div class="card">
+          <img class="w-100" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="image maison">
+        </div>
+        <div>
+          <%= link_to flat.name, flat_path(flat.id), class:"text-black fw-bold fs-5" %>
+        </div>
+        <div>
+          <%= flat.address %>
+        </div>
+        <div>
+          <%= flat.description %>
+        </div>
+        <div>
+          <%= flat.price_per_night %>
+        </div>
+        <div>
+          <%= flat.number_of_guests %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
